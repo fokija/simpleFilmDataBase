@@ -1,38 +1,11 @@
-#include <iostream>
-#include <vector>
-#include <fstream>
-
-class Movie;
-class Base
-{
-    private:
-        std::vector<Movie> movieList;
-        std::string baseName;
-    public:
-        Base();
+#include "manager.h"
 
 
-};
-
-class Movie
-{
-    private:
-        std::string title;
-        unsigned short releaseYear;
-        std::string director;
-        std::string genre;
-        std::string actor1;
-        std::string actor2;
-    public:
-        Movie();
-
-
-
-};
 
 int main()
 {
-
+    mainMenu();
+    mainMenuActions();
 
     return 0;
 }
