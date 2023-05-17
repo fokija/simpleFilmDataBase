@@ -4,5 +4,8 @@
 void mainMenu(); 
 void openedBaseMenu();
 void mainMenuActions();
+void createNewBase();
+void openedBaseMenuActions();
+
 
 #endif
