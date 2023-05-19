@@ -16,6 +16,8 @@ class Base
         Base(std::string baseName, std::vector<Movie> movieList);
         ~Base() {}
         void setBaseName(std::string);
+        void addMovieToBase(Movie);
+        
 };
 
 

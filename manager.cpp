@@ -2,7 +2,6 @@
 #include "base.h"
 #include "movie.h"
 #include <iostream>
-#include <stdlib.h>
 
 void mainMenu()
 {
@@ -87,8 +86,8 @@ void openedBaseMenuActions()
             {
                 case '1':
                     system("clear");
-                    std::cout << "1. add movie actions" << std::endl;
-                    
+                    createNewMovie();
+                    //i jak teraz to wrzucić do bazy???
                     break;
                 case '2':
                     system("clear");
@@ -113,4 +112,37 @@ void openedBaseMenuActions()
         }
         
     } while (actionNumber != 54);
+}
+Movie createNewMovie()
+{
+    system("clear");
+    Movie myMovie;
+    std::string inputStringStream;
+    unsigned short inputShortSream;
+    std::cout << "Enter the movie name: ";
+    std::getline(std::cin, inputStringStream);
+    myMovie.setTitle(inputStringStream);
+    std::cout << std::endl;
+    std::cout << "Enter the year of the movie's release: ";
+    std::cin >> inputShortSream;
+    myMovie.setReleaseYear(inputShortSream);
+    std::cout << std::endl;
+    std::cout << "Enter the name of director: ";
+    std::getline(std::cin, inputStringStream);
+    myMovie.setDirector(inputStringStream);
+    std::cout << std::endl;
+    std::cout << "Enter the genre name: ";
+    std::getline(std::cin, inputStringStream);
+    myMovie.setGenre(inputStringStream);
+    std::cout << std::endl;
+    std::cout << "Enter the name of actor 1: ";
+    std::getline(std::cin, inputStringStream);
+    myMovie.setActor1(inputStringStream);
+    std::cout << std::endl;
+    std::cout << "Enter the name of actor 2: ";
+    std::getline(std::cin, inputStringStream);
+    myMovie.setActor2(inputStringStream);
+    system("clear");
+
+    return myMovie;
 }

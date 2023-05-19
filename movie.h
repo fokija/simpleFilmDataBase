@@ -13,8 +13,13 @@ class Movie
         std::string actor1;
         std::string actor2;
     public:
-        Movie();
-
+        Movie() {};
+        void setTitle(std::string);
+        void setReleaseYear(unsigned short);
+        void setDirector(std::string);
+        void setGenre(std::string);
+        void setActor1(std::string);
+        void setActor2(std::string);
 };
 
 #endif
