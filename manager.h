@@ -1,10 +1,12 @@
 #ifndef MANAGER_H
 #define MANAGER_H
 
+#include "base.h"
+
 void mainMenu(); 
 void openedBaseMenu();
 void mainMenuActions();
-void createNewBase();
+Base createNewBase();
 void openedBaseMenuActions();
 
 

@@ -4,7 +4,6 @@
 
 int main()
 {
-    mainMenu();
     mainMenuActions();
 
     return 0;

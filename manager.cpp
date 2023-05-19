@@ -19,6 +19,7 @@ void mainMenu()
 
 void openedBaseMenu()
 {
+    system("clear");
     std::cout << std::endl;
     std::cout << "=== Options ===" << std::endl;
     std::cout << "===============" << std::endl;
@@ -33,34 +34,34 @@ void openedBaseMenu()
 }
 
 void mainMenuActions()
-{
+{  
     char actionNumber;
-    
     do
     {
+        mainMenu();
         std::cin >> actionNumber;
-
-        switch (actionNumber)
+        if (actionNumber >= 49 && actionNumber <= 50)
         {
+            switch (actionNumber)
+            {
             case '1':
                 system("clear");
                 createNewBase();
-                openedBaseMenu();
                 openedBaseMenuActions();
                 break;
             case '2':
                 system("clear");
                 std::cout << "tu wykona się akcja dla 2" << std::endl;
-                openedBaseMenu();
+                openedBaseMenuActions();
                 break;
             
             default:
-                mainMenu();
                 break;
+            }    
         }    
-    } while ((actionNumber < 49 || actionNumber > 50) && actionNumber != 51);
+    } while (actionNumber != 51);
 }
-void createNewBase()
+Base createNewBase()
 {
     system("clear");
     std::string myName;
@@ -69,43 +70,47 @@ void createNewBase()
     Base myBase;
     myBase.setBaseName(myName);
     system("clear");
+
+    return myBase;
 }
 
 void openedBaseMenuActions()
 {
     char actionNumber;
-    
     do
     {
+        openedBaseMenu();
         std::cin >> actionNumber;
-
-        switch (actionNumber)
+        if (actionNumber >= 49 && actionNumber <= 53)
         {
-            case '1':
-                system("clear");
-                std::cout << "1. add movie actions" << std::endl;
+            switch (actionNumber)
+            {
+                case '1':
+                    system("clear");
+                    std::cout << "1. add movie actions" << std::endl;
+                    
+                    break;
+                case '2':
+                    system("clear");
+                    std::cout << "2. edit movie actions" << std::endl;
+                    break;
+                case '3':
+                    system("clear");
+                    std::cout << "3. delete movie actions" << std::endl;
+                    break;
+                case '4':
+                    system("clear");
+                    std::cout << "4. Display base" << std::endl;
+                    break;
+                case '5':
+                    system("clear");
+                    std::cout << "5. Save the base" << std::endl;
+                    break;
                 
-                break;
-            case '2':
-                system("clear");
-                std::cout << "2. edit movie actions" << std::endl;
-                break;
-            case '3':
-                system("clear");
-                std::cout << "3. delete movie actions" << std::endl;
-                break;
-             case '4':
-                system("clear");
-                std::cout << "4. Display base" << std::endl;
-                break;
-             case '5':
-                system("clear");
-                std::cout << "5. Save the base" << std::endl;
-                break;
-            
-            default:
-                openedBaseMenu();
-                break;
-        }    
-    } while ((actionNumber < 49 || actionNumber > 53) && actionNumber != 54);
+                default:
+                    break;
+            }    
+        }
+        
+    } while (actionNumber != 54);
 }
