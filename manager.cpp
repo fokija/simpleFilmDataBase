@@ -96,6 +96,7 @@ void openedBaseMenuActions(Base& base)
                         system("clear");
                         Movie createdMovie = createNewMovie();
                         base.addMovieToBase(createdMovie);
+                        //base.increaseRecordsCounter();
                         break;
                     }
                 case '2':
@@ -108,7 +109,8 @@ void openedBaseMenuActions(Base& base)
                     break;
                 case '4':
                     system("clear");
-                    std::cout << "4. Display base" << std::endl;
+                    displayBase(base);
+                    //getchar();
                     break;
                 case '5':
                     system("clear");
@@ -119,7 +121,7 @@ void openedBaseMenuActions(Base& base)
                     break;
             }    
         }
-        
+
     } while (actionNumber != 54);
 }
 
@@ -154,4 +156,22 @@ Movie createNewMovie()
     system("clear");
 
     return myMovie;
+}
+void displayBase(Base& base)
+{
+    std::vector<Movie> movieList = base.getVectorMovieFromBase();
+    for (size_t i = 0; i < movieList.size(); i++)
+    {
+        std::string title = movieList[i].getTitle(); 
+        unsigned short releaseYear = movieList[i].getReleaseYear();
+        std::string director = movieList[i].getDirector();
+        std::string genre = movieList[i].getGenre();
+        std::string actor1 = movieList[i].getActor1();
+        std::string actor2 = movieList[i].getActor2();
+
+        std::cout << (i+1) << " " << title << " " << releaseYear << " " << director
+            << " " << genre << " " << actor1 << " " << actor2 << std::endl;
+    }
+   
+
 }

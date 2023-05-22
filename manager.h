@@ -9,6 +9,7 @@ void mainMenuActions(Base&);
 Base createNewBase();
 void openedBaseMenuActions(Base&);
 Movie createNewMovie();
+void displayBase(Base&);
 
 
 #endif
