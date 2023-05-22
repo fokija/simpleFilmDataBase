@@ -2,6 +2,9 @@
 #include "base.h"
 #include "movie.h"
 #include <iostream>
+#include <string>
+#include <limits>
+
 
 void mainMenu()
 {
@@ -32,26 +35,27 @@ void openedBaseMenu()
     std::cout << std::endl;
 }
 
-void mainMenuActions()
+void mainMenuActions(Base& base)
 {  
     char actionNumber;
     do
     {
         mainMenu();
         std::cin >> actionNumber;
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
         if (actionNumber >= 49 && actionNumber <= 50)
         {
             switch (actionNumber)
             {
             case '1':
                 system("clear");
-                createNewBase();
-                openedBaseMenuActions();
+                base = createNewBase();
+                openedBaseMenuActions(base);
                 break;
             case '2':
                 system("clear");
                 std::cout << "tu wykona się akcja dla 2" << std::endl;
-                openedBaseMenuActions();
+                //openedBaseMenuActions();
                 break;
             
             default:
@@ -60,12 +64,14 @@ void mainMenuActions()
         }    
     } while (actionNumber != 51);
 }
+
 Base createNewBase()
 {
     system("clear");
     std::string myName;
     std::cout << std::endl << "Enter the base name:   ";
     std::cin >> myName;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
     Base myBase;
     myBase.setBaseName(myName);
     system("clear");
@@ -73,22 +79,25 @@ Base createNewBase()
     return myBase;
 }
 
-void openedBaseMenuActions()
+void openedBaseMenuActions(Base& base)
 {
     char actionNumber;
     do
     {
         openedBaseMenu();
         std::cin >> actionNumber;
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
         if (actionNumber >= 49 && actionNumber <= 53)
         {
             switch (actionNumber)
             {
                 case '1':
-                    system("clear");
-                    createNewMovie();
-                    //i jak teraz to wrzucić do bazy???
-                    break;
+                    {
+                        system("clear");
+                        Movie createdMovie = createNewMovie();
+                        base.addMovieToBase(createdMovie);
+                        break;
+                    }
                 case '2':
                     system("clear");
                     std::cout << "2. edit movie actions" << std::endl;
@@ -113,19 +122,19 @@ void openedBaseMenuActions()
         
     } while (actionNumber != 54);
 }
+
 Movie createNewMovie()
 {
     system("clear");
     Movie myMovie;
     std::string inputStringStream;
-    unsigned short inputShortSream;
     std::cout << "Enter the movie name: ";
     std::getline(std::cin, inputStringStream);
     myMovie.setTitle(inputStringStream);
     std::cout << std::endl;
     std::cout << "Enter the year of the movie's release: ";
-    std::cin >> inputShortSream;
-    myMovie.setReleaseYear(inputShortSream);
+    std::getline(std::cin, inputStringStream);
+    myMovie.setReleaseYear(std::atoi(inputStringStream.c_str()));
     std::cout << std::endl;
     std::cout << "Enter the name of director: ";
     std::getline(std::cin, inputStringStream);

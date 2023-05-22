@@ -5,9 +5,9 @@
 
 void mainMenu(); 
 void openedBaseMenu();
-void mainMenuActions();
+void mainMenuActions(Base&);
 Base createNewBase();
-void openedBaseMenuActions();
+void openedBaseMenuActions(Base&);
 Movie createNewMovie();
 
 

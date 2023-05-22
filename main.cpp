@@ -4,7 +4,8 @@
 
 int main()
 {
-    mainMenuActions();
+    Base workingBase;
+    mainMenuActions(workingBase);
 
     return 0;
 }
