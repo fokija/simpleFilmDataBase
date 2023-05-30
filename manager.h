@@ -10,6 +10,8 @@ Base createNewBase();
 void openedBaseMenuActions(Base&);
 Movie createNewMovie();
 void displayBase(Base&);
+void saveBase(Base&);
+void openBase(Base&);
 
 
 #endif
