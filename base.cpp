@@ -1,3 +1,5 @@
+#include <iostream>
+#include <vector>
 #include "base.h"
 
 void Base::setBaseName(std::string baseName)

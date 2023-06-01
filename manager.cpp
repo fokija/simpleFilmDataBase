@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
 #include <limits>
 
 
@@ -103,7 +104,7 @@ void openedBaseMenuActions(Base& base)
                     break;
                 case '3':
                     //system("clear");
-                    std::cout << "3. delete movie actions" << std::endl;
+                    deleteMovieFromBase(base);
                     break;
                 case '4':
                     //system("clear");
@@ -158,6 +159,7 @@ Movie createNewMovie()
 }
 void displayBase(Base& base)
 {
+    std::cout << std::endl;
     std::vector<Movie> movieList = base.getVectorMovieFromBase();
     for (size_t i = 0; i < movieList.size(); i++)
     {
@@ -202,10 +204,8 @@ void saveBase(Base& base)
 
 void openBase(Base& base)
 {
-    
     std::ifstream file;
     file.open("movieBase.txt", std::ios::in);
-
 
     if (file.is_open())
     {
@@ -239,4 +239,22 @@ void openBase(Base& base)
     {
         std::cout << "File could not be opened or does not exist" << std::endl;
     }    
+}
+
+void deleteMovieFromBase(Base& base)
+{
+    unsigned int movieIndex;
+    std::vector<Movie> movieList = base.getVectorMovieFromBase();
+   
+    std::cout << "Type index of the movie and press [ENTER] or [0] to terminate the operation :  ";
+    std::cin >> movieIndex;
+    if (movieIndex == 0) { return; }
+    if (movieList.empty() || movieIndex > movieList.size())
+    {
+        std::cout << "The base is empty or the index does not exist!";
+    }
+    else
+    {
+        movieList.erase(movieList.begin() + (movieIndex - 1));
+    }
 }

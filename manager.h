@@ -12,6 +12,6 @@ Movie createNewMovie();
 void displayBase(Base&);
 void saveBase(Base&);
 void openBase(Base&);
-
+void deleteMovieFromBase(Base&);
 
 #endif
