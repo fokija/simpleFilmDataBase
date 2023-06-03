@@ -17,6 +17,7 @@ class Base
         void addMovieToBase(Movie);
         std::vector<Movie> getVectorMovieFromBase();
         std::string getBaseName();
+        void deleteMovieFromBase(unsigned int);
 };
 
 

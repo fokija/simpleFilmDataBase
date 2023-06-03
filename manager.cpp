@@ -104,7 +104,7 @@ void openedBaseMenuActions(Base& base)
                     break;
                 case '3':
                     //system("clear");
-                    deleteMovieFromBase(base);
+                    deleteMovie(base);
                     break;
                 case '4':
                     //system("clear");
@@ -241,20 +241,19 @@ void openBase(Base& base)
     }    
 }
 
-void deleteMovieFromBase(Base& base)
+void deleteMovie(Base& base)
 {
     unsigned int movieIndex;
-    std::vector<Movie> movieList = base.getVectorMovieFromBase();
-   
+
     std::cout << "Type index of the movie and press [ENTER] or [0] to terminate the operation :  ";
     std::cin >> movieIndex;
     if (movieIndex == 0) { return; }
-    if (movieList.empty() || movieIndex > movieList.size())
+    if (base.getVectorMovieFromBase().empty() || movieIndex > base.getVectorMovieFromBase().size())
     {
         std::cout << "The base is empty or the index does not exist!";
     }
     else
     {
-        movieList.erase(movieList.begin() + (movieIndex - 1));
+        base.deleteMovieFromBase(movieIndex);
     }
 }

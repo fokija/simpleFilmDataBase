@@ -21,12 +21,12 @@ class Movie
         void setGenre(std::string);
         void setActor1(std::string);
         void setActor2(std::string);
-        std::string getTitle();
-        unsigned short getReleaseYear();
-        std::string getDirector();
-        std::string getGenre();
-        std::string getActor1();
-        std::string getActor2();
+        std::string getTitle() const;
+        unsigned short getReleaseYear() const;
+        std::string getDirector() const;
+        std::string getGenre() const;
+        std::string getActor1() const;
+        std::string getActor2() const;
 };
 
 #endif

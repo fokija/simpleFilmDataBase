@@ -24,27 +24,27 @@ void Movie::setActor2(std::string setActor2)
 {
     m_actor2 = setActor2;
 }
-std::string Movie::getTitle()
+std::string Movie::getTitle() const
 {
     return m_title;
 }
-unsigned short Movie::getReleaseYear()
+unsigned short Movie::getReleaseYear() const
 {
     return m_releaseYear;
 }
-std::string Movie::getDirector()
+std::string Movie::getDirector() const
 {
     return m_director;
 }
-std::string Movie::getGenre()
+std::string Movie::getGenre() const
 {
     return m_genre;
 }
-std::string Movie::getActor1()
+std::string Movie::getActor1() const
 {
     return m_actor1;
 }
-std::string Movie::getActor2()
+std::string Movie::getActor2() const
 {
     return m_actor2;
 }
