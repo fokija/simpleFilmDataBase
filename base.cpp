@@ -26,4 +26,31 @@ void Base::deleteMovieFromBase(unsigned int index)
     
     //v.erase(std::remove(v.begin(), v.end(), 5), v.end());
 }
+void Base::editMovieFromBase(unsigned int index)
+{
+    std::string inputStringStream;
 
+    std::cout << "Enter a NEW movie name: ";
+    std::getline(std::cin, inputStringStream);
+    m_movieList[index - 1].setTitle(inputStringStream);
+
+    std::cout << "Enter the NEW year of the movie's release: ";
+    std::getline(std::cin, inputStringStream);
+    m_movieList[index - 1].setReleaseYear(std::atoi(inputStringStream.c_str()));
+
+    std::cout << "Enter the NEW name of director: ";
+    std::getline(std::cin, inputStringStream);
+    m_movieList[index - 1].setDirector(inputStringStream);
+
+    std::cout << "Enter the NEW genre name: ";
+    std::getline(std::cin, inputStringStream);
+    m_movieList[index - 1].setGenre(inputStringStream);
+
+    std::cout << "Enter the NEW name of actor 1: ";
+    std::getline(std::cin, inputStringStream);
+    m_movieList[index - 1].setActor1(inputStringStream);
+
+    std::cout <<  "Enter the NEW name of actor 2: ";
+    std::getline(std::cin, inputStringStream);
+    m_movieList[index - 1].setActor2(inputStringStream);
+}

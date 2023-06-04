@@ -13,5 +13,6 @@ void displayBase(Base&);
 void saveBase(Base&);
 void openBase(Base&);
 void deleteMovie(Base&);
+void editMovie(Base&);
 
 #endif

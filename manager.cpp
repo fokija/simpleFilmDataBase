@@ -100,7 +100,7 @@ void openedBaseMenuActions(Base& base)
                     }
                 case '2':
                     //system("clear");
-                    std::cout << "2. edit movie actions" << std::endl;
+                    editMovie(base);
                     break;
                 case '3':
                     //system("clear");
@@ -113,7 +113,6 @@ void openedBaseMenuActions(Base& base)
                     break;
                 case '5':
                     //system("clear");
-                    std::cout << "5. Save the base" << std::endl;
                     saveBase(base);
                     break;
                 
@@ -247,6 +246,7 @@ void deleteMovie(Base& base)
 
     std::cout << "Type index of the movie and press [ENTER] or [0] to terminate the operation :  ";
     std::cin >> movieIndex;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
     if (movieIndex == 0) { return; }
     if (base.getVectorMovieFromBase().empty() || movieIndex > base.getVectorMovieFromBase().size())
     {
@@ -255,5 +255,22 @@ void deleteMovie(Base& base)
     else
     {
         base.deleteMovieFromBase(movieIndex);
+    }
+}
+void editMovie(Base& base)
+{
+    unsigned int movieIndex;
+
+    std::cout << "Type index of the movie you want to change and press [ENTER] or [0] to terminate the operation :  ";
+    std::cin >> movieIndex;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+    if (movieIndex == 0) { return; }
+    if (base.getVectorMovieFromBase().empty() || movieIndex > base.getVectorMovieFromBase().size())
+    {
+        std::cout << "The base is empty or the index does not exist!";
+    }
+    else 
+    {
+        base.editMovieFromBase(movieIndex);
     }
 }
