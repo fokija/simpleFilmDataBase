@@ -191,7 +191,11 @@ void saveBase(Base& base)
             file << movieList[i].getDirector() << std::endl;
             file << movieList[i].getGenre() << std::endl;
             file << movieList[i].getActor1() << std::endl;
-            file << movieList[i].getActor2() << std::endl;
+            file << movieList[i].getActor2(); 
+            if (i != movieList.size() -1)
+            {
+                file << std::endl;
+            }
         }
         file.close();
     }
@@ -214,7 +218,7 @@ void openBase(Base& base)
         base.setBaseName(lineReader);
         Movie movie;
         
-        do
+        while (!file.eof())
         {
             getline(file, lineReader);
             movie.setTitle(lineReader);
@@ -229,8 +233,7 @@ void openBase(Base& base)
             getline(file, lineReader);
             movie.setActor2(lineReader);
             base.addMovieToBase(movie);
-           
-        } while (!file.eof());
+        } 
         
         file.close();
     }
@@ -260,7 +263,7 @@ void deleteMovie(Base& base)
 void editMovie(Base& base)
 {
     unsigned int movieIndex;
-
+    //read and input to the base in this function (not in Base class)
     std::cout << "Type index of the movie you want to change and press [ENTER] or [0] to terminate the operation :  ";
     std::cin >> movieIndex;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
