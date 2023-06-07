@@ -10,7 +10,6 @@
 
 void mainMenu()
 {
-    //system("clear");
     std::cout << std::endl;
     std::cout << "=== Main Menu ===" << std::endl;
     std::cout << "=================" << std::endl;
@@ -22,7 +21,6 @@ void mainMenu()
 
 void openedBaseMenu()
 {
-    //system("clear");
     std::cout << std::endl;
     std::cout << "=== Options ===" << std::endl;
     std::cout << "===============" << std::endl;
@@ -48,12 +46,10 @@ void mainMenuActions(Base& base)
             switch (actionNumber)
             {
             case '1':
-                //system("clear");
                 base = createNewBase();
                 openedBaseMenuActions(base);
                 break;
             case '2':
-                //system("clear");
                 openBase(base);
                 openedBaseMenuActions(base);
                 break;
@@ -67,14 +63,12 @@ void mainMenuActions(Base& base)
 
 Base createNewBase()
 {
-    //system("clear");
     std::string myName;
     std::cout << std::endl << "Enter the base name:   ";
-    std::cin >> myName; // better change to getline function
+    std::cin >> myName;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
     Base myBase;
     myBase.setBaseName(myName);
-    //system("clear");
 
     return myBase;
 }
@@ -93,40 +87,31 @@ void openedBaseMenuActions(Base& base)
             {
                 case '1':
                     {
-                        //system("clear");
                         Movie createdMovie = createNewMovie();
                         base.addMovieToBase(createdMovie);
                         break;
                     }
                 case '2':
-                    //system("clear");
                     editMovie(base);
                     break;
                 case '3':
-                    //system("clear");
                     deleteMovie(base);
                     break;
                 case '4':
-                    //system("clear");
                     displayBase(base);
-                    //getchar();
                     break;
                 case '5':
-                    //system("clear");
                     saveBase(base);
                     break;
-                
                 default:
                     break;
             }    
         }
-
     } while (actionNumber != 54);
 }
 
 Movie createNewMovie()
 {
-    //system("clear");
     Movie myMovie;
     std::string inputStringStream;
     std::cout << "Enter the movie name: ";
@@ -152,7 +137,6 @@ Movie createNewMovie()
     std::cout << "Enter the name of actor 2: ";
     std::getline(std::cin, inputStringStream);
     myMovie.setActor2(inputStringStream);
-    //system("clear");
 
     return myMovie;
 }
@@ -212,7 +196,7 @@ void openBase(Base& base)
 
     if (file.is_open())
     {
-        base = {}; //needed other method to clear base vector
+        base = {};
         std::string lineReader;
         getline(file, lineReader);
         base.setBaseName(lineReader);
@@ -234,7 +218,6 @@ void openBase(Base& base)
             movie.setActor2(lineReader);
             base.addMovieToBase(movie);
         } 
-        
         file.close();
     }
     else
@@ -263,7 +246,6 @@ void deleteMovie(Base& base)
 void editMovie(Base& base)
 {
     unsigned int movieIndex;
-    //read and input to the base in this function (not in Base class)
     std::cout << "Type index of the movie you want to change and press [ENTER] or [0] to terminate the operation :  ";
     std::cin >> movieIndex;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
