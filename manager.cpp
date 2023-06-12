@@ -64,7 +64,7 @@ void mainMenuActions(Base& base)
 Base createNewBase()
 {
     std::string myName;
-    std::cout << std::endl << "Enter the base name:   ";
+    std::cout << std::endl << "Enter the base name [***.txt]:   ";
     std::cin >> myName;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
     Base myBase;
@@ -162,7 +162,7 @@ void saveBase(Base& base)
 {
     std::ofstream file;
 
-    file.open("movieBase.txt", std::ios::out);
+    file.open(base.getBaseName(), std::ios::out);
 
     if (file.is_open())
     {
@@ -191,8 +191,13 @@ void saveBase(Base& base)
 
 void openBase(Base& base)
 {
+    std::string baseFileNameToRead;
+    std::cout << "Enter the base name [***.txt]:   ";
+    std::cin >> baseFileNameToRead;
+    std::cin.ignore();
+
     std::ifstream file;
-    file.open("movieBase.txt", std::ios::in);
+    file.open(baseFileNameToRead, std::ios::in);
 
     if (file.is_open())
     {
@@ -223,6 +228,7 @@ void openBase(Base& base)
     else
     {
         std::cout << "File could not be opened or does not exist" << std::endl;
+        mainMenuActions(base);
     }    
 }
 
