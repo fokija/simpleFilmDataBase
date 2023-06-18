@@ -15,8 +15,8 @@ class Base
         ~Base() {}
         void setBaseName(std::string);
         void addMovieToBase(Movie);
-        std::vector<Movie> getVectorMovieFromBase();
-        std::string getBaseName();
+        std::vector<Movie> getVectorMovieFromBase() const;
+        std::string getBaseName() const;
         void deleteMovieFromBase(unsigned int);
         void editMovieFromBase(unsigned int);
 };

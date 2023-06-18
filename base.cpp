@@ -10,11 +10,11 @@ void Base::addMovieToBase(Movie addMovie)
 {
     m_movieList.push_back(addMovie);
 };
-std::vector<Movie> Base::getVectorMovieFromBase()
+std::vector<Movie> Base::getVectorMovieFromBase() const
 {
     return m_movieList;
 }
-std::string Base::getBaseName()
+std::string Base::getBaseName() const
 {
     return m_baseName;
 }

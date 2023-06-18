@@ -3,6 +3,6 @@
 int main()
 {
     Base workingBase;
-    mainMenuActions(workingBase);
+    manager::mainMenuActions(workingBase);
     return 0;
 }
